@@ -9,6 +9,7 @@ app.use(express.json());
 
 app.use("/api/tasks", require("./Routes/tasks"));
 app.use("/api/match", require("./Routes/match"));
+app.use("/api/volunteers", require("./Routes/volunteers"));
 
 app.get("/", (req, res) => res.json({ status: "UnityFlow backend live" }));
 
