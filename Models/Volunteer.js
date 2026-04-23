@@ -1,14 +1,18 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const volunteerSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  skills: [{ type: String }],
+  age: { type: Number },
+  phone: { type: String, required: true, unique: true },
+  skills: { type: String },
+  sector: { type: String },
   location: {
-    lat: { type: Number, required: true },
-    lng: { type: Number, required: true },
+    lat: { type: Number, default: 12.9716 },
+    lng: { type: Number, default: 77.5946 }
   },
   available: { type: Boolean, default: true },
-  phone: { type: String, default: "" },
-});
+  approved: { type: Boolean, default: false },
+  rejected: { type: Boolean, default: false },
+}, { timestamps: true });
 
-module.exports = mongoose.model("Volunteer", volunteerSchema);
+module.exports = mongoose.model('Volunteer', volunteerSchema);
